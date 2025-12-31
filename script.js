@@ -5,13 +5,11 @@ let showData = document.getElementById("showData");
 let searchData = () => {
   let input = document.getElementById("input").value.trim();
 
-  // ❌ Empty input check
   if (input === "") {
     showData.innerHTML = `<p class="text-danger">Please enter city name</p>`;
     return;
   }
 
-  // ✅ Loader
   showData.innerHTML = `
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Loading...</span>
@@ -30,13 +28,11 @@ let searchData = () => {
 };
 
 let showWeatherData = (data) => {
-  // ❌ Error handling
   if (data.cod !== 200) {
     showData.innerHTML = `<h5 class="text-danger">${data.message}</h5>`;
     return;
   }
 
-  // ✅ Weather Card
   showData.innerHTML = `
     <div style="
       border: 1px solid #ccc;
